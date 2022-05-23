@@ -1,5 +1,7 @@
 package com.wiredbrain.friends.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 /*
@@ -13,6 +15,10 @@ public class Address {
     private int id;
     private String street;
     private String city;
+
+    @JsonBackReference
+    @ManyToOne
+    private Friend friend;
 
     public String getStreet() {
         return street;
