@@ -3,8 +3,8 @@ package com.wiredbrain.friends.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 

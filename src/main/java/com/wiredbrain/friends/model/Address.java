@@ -1,8 +1,8 @@
 package com.wiredbrain.friends.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 
 /*
 * When Address is Embeddable, it doesn't need to have an id

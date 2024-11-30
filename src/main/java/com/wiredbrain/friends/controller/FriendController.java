@@ -20,11 +20,13 @@ import java.util.stream.Collectors;
 @RestController
 public class FriendController {
 
-    //    Dependency Friend service is injected into this class through the autowired annotation
-    @Autowired
-    FriendService friendService;
+    private final FriendService friendService;
 
-    //    Without using the validation class
+    public FriendController(FriendService friendService){
+        this.friendService = friendService;
+    }
+
+//    //    Without using the validation class
 //    @PostMapping("/friend")
 //    Friend create(@RequestBody Friend friend) throws ValidationException {
 //        if (friend.getId() == 0 && friend.getFirstName() != null && friend.getLastName() != null)
@@ -36,6 +38,7 @@ public class FriendController {
     Friend create(@Valid @RequestBody Friend friend) {
         return friendService.save(friend);
     }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     List<FieldErrorMessageClass> exceptionHandler(MethodArgumentNotValidException e){
